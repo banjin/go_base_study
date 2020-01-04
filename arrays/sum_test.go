@@ -1,7 +1,7 @@
 package main
 
 import "testing"
-
+import "reflect"
 func TestSum(t *testing.T){
 
 	t.Run("collection of 5 numbers", func(t *testing.T){
@@ -23,5 +23,12 @@ func TestSum(t *testing.T){
 	})
 }
 
-
+func TestSumAll(t *testing.T){
+	got := SumAll([]int{1,2}, []int{3,4})
+	want := []int{3,7}
+	// 切盼不能使用等号
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v want %v", got, want)
+	}
+}
 
