@@ -1,6 +1,5 @@
 package main
 
-
 import "testing"
 
 func TestHello(t *testing.T) {
@@ -11,15 +10,19 @@ func TestHello(t *testing.T) {
         }
     }
     t.Run("saying hello to people", func(t *testing.T) {
-        got := Hello("shm")
+        got := Hello("shm", "")
         want := "hello shm"
         assertCorrectMessage(t, got, want)
     })
     t.Run("empty string defaults to 'world'", func(t *testing.T) {
-        got := Hello("")
-       
+        got := Hello("", "")
         want := "hello world"
         assertCorrectMessage(t, got ,want)
     	})	
+    t.Run("in Spanish", func(t *testing.T){
+        got := Hello("Elodie", "Spanish")
+        want := "Hola, Elodie"
+        assertCorrectMessage(t, got, want)
+    })
 }
 
