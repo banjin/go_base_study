@@ -18,10 +18,11 @@ func (w *Wallet) Balance() Bitcoin{
 	return w.balance
 }
 
-
+//var 关键字允许我们定义包的全局值。
+var InsufficientFundsError = errors.New("cannot withdraw, insufficient funds")
 func (w *Wallet) Withdraw(a Bitcoin)  error {
 	if a > w.balance {
-        return errors.New("cannot withdraw, insufficient funds")
+        return InsufficientFundsError
     }
 	w.balance -= a
 	return nil
