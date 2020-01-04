@@ -1,11 +1,19 @@
 package structs
 
 
-func Perimeter(length float64, weight float64) float64 {
-
-	return (length + weight) * 2
+type Rectangle struct {
+	Width float64
+	Height float64
 }
 
-func Area(height float64, weight float64) float64{
-	return height * weight
+
+
+func Perimeter(a Rectangle) float64 {
+
+	return (a.Width + a.Height) * 2
 }
+
+func Area(a Rectangle) float64{
+	return a.Height * a.Width
+}
+
