@@ -1,10 +1,9 @@
 package main
 
-
-func Sum(a [5]int) int{
+func Sum(a []int) int{
 	n := 0
-	for i := 0; i < len(a); i++ {
-		n += a[i]
+	for _, value := range(a) {
+		n += value
 	}
 	return n
 }
