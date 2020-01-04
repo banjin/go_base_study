@@ -1,6 +1,7 @@
 package pointers
 
 import "fmt"
+import "errors"
 
 type Bitcoin int  //类型别名
 
@@ -18,8 +19,12 @@ func (w *Wallet) Balance() Bitcoin{
 }
 
 
-func (w *Wallet) Withdraw(a Bitcoin) {
+func (w *Wallet) Withdraw(a Bitcoin)  error {
+	if a > w.balance {
+        return errors.New("cannot withdraw, insufficient funds")
+    }
 	w.balance -= a
+	return nil
 }
 type Stringer interface {
 	String() string
