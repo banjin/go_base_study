@@ -16,7 +16,7 @@ func TestArea(t *testing.T){
 
 	t.Run("Rectangle", func(t *testing.T){
 		rectangle := Rectangle{10.0, 10.0}
-		got := Area(rectangle)
+		got := rectangle.Area()
 		want := 100.0
 		if want != got {
 			t.Errorf("got %.2f want %.2f", got, want)
@@ -25,7 +25,7 @@ func TestArea(t *testing.T){
 	t.Run("Cycle", func(t *testing.T){
 
 		circle := Circle{10}
-        got := Area(circle)
+        got := circle.Area()
         want := 314.16
 
         if got != want {
