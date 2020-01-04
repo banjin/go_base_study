@@ -14,15 +14,21 @@ func Hello(name string, language string) string {
     if name == ""{
         name = "world"
     }
+    return greetingPrefix(language) + name
 
-    prefix := englishHelloPrefix
+}
+// prefix 是命名返回值，这将在你的函数中创建一个名为 prefix 的变量
+func greetingPrefix(language string) (prefix string){
+
     switch language {
         case french:
             prefix = frenchHelloPrefix
         case spanish:
             prefix = spanishHelloPrefix
+        default:
+            prefix = englishHelloPrefix
     }
-    return prefix + name
+    return   //返回prefix
 }
 
 func main(){
