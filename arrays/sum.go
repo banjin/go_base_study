@@ -20,3 +20,14 @@ func SumAll(a ...[]int) []int {
 	}
 	return sums
 }
+
+// 去除第一个元素的剩余元素的和
+func SumAllTail(a ...[]int) []int{
+	var sums []int
+	for _,  numbers  := range a {
+		numbers = numbers[1:]
+		sums = append(sums, Sum(numbers))
+	}
+	return sums
+
+}
