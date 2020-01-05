@@ -7,11 +7,13 @@ func Search(m map[string]string, key string) string{
 	return  m[key]
 }
 
+
+var ErrNotFound = errors.New("could not find the word you were looking for")
 func (d Dictionary) Search(key string) (string, error) {
 
 	definition, ok := d[key]
 	if !ok {
-		return "", errors.New("could not find the word you were looking for")
+		return "", ErrNotFound
 	}
 
 	return definition, nil
