@@ -35,3 +35,5 @@ func TestArea(t *testing.T){
 
     }
 }
+
+//go test -run TestArea/Rectangle 可以指定运行的测试用例
