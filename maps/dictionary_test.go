@@ -59,4 +59,21 @@ func TestAddKey(t *testing.T){
 
 func assertDefinition(t *testing.T, d Dictionary, key, value string){
 	t.Helper()
+	got, err := d.Search(key)
+    if err != nil {
+        t.Fatal("should find added word:", err)
+    }
+    if value != got {
+        t.Errorf("got '%s' want '%s'", got, value)
+    }
+}
+
+func TestUpdate(t *testing.T){
+	
+	word := "test"
+	definition := "this is just a test"
+	dictionary := Dictionary{word:definition}
+	newdefinition := "new definition"
+	dictionary.Update(word, newdefinition)
+	assertDefinition(t, dictionary, word, newdefinition)
 }
