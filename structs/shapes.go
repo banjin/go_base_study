@@ -35,7 +35,7 @@ func Perimeter(a Rectangle) float64 {
 	return (a.Width + a.Height) * 2
 }
 
-
+//声明接口，这样我们可以定义适合不同参数类型的函数（参数多态）
 type Shape interface {
     Area() float64
 }
